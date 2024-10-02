@@ -6,12 +6,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+
+import br.com.Jairtech.controller.LoginController;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 
 public class LoginView extends JFrame {
 	
@@ -44,6 +50,27 @@ public class LoginView extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginView() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+				LoginController controle = new LoginController();
+				
+				
+				
+				
+				
+			try {
+				if(controle.verificarBancoOnline()) {
+					System.out.println("Sim");
+				}else {
+					System.out.println("Não");
+				}
+			}catch (SQLException el ) {
+				el.printStackTrace();
+			}
+				
+			}
+		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
