@@ -9,10 +9,10 @@ public class LoginDAO extends GenericDAO{
 	
 	
 		public Boolean bancoOnline()  {
-			Connection valor = getConnection();
+			Connection valor = conectarDAO();
 			if (valor != null){
 				try {
-					getConnection().close();
+					conectarDAO().close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -24,7 +24,7 @@ public class LoginDAO extends GenericDAO{
 		public Usuario autenticar(String login, String senha) throws SQLException {
 			String sql = "SELECT * FROM USUARIOS WHERE login=? AND senha=?";
 			Usuario usuario = null;
-			PreparedStatement stmt = getConnection().prepareStatement(sql);
+			PreparedStatement stmt = conectarDAO().prepareStatement(sql);
 
 			stmt.setString(1, login);
 			stmt.setString(2, senha);
@@ -42,7 +42,7 @@ public class LoginDAO extends GenericDAO{
 
 			rs.close();
 			stmt.close();
-			getConnection().close();
+			conectarDAO().close();
 
 			return usuario;
 		}

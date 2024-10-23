@@ -17,13 +17,13 @@ public abstract class GenericDAO {
 		this.connection = ConexaoBD.getConnection();
 	}
 
-	protected Connection getConnection() {
+	protected Connection conectarDAO() {
 		return connection;
 	}
 
 	// Método para salvar
 	protected void save(String insertSql, Object... parametros) throws SQLException {
-		PreparedStatement pstmt = getConnection().prepareStatement(insertSql);
+		PreparedStatement pstmt = conectarDAO().prepareStatement(insertSql);
 
 		for (int i = 0; i < parametros.length; i++) {
 			pstmt.setObject(i + 1, parametros[i]);
@@ -36,7 +36,7 @@ public abstract class GenericDAO {
 
 	// Método para atualizar
 	protected void update(String updateSql, Object id, Object... parametros) throws SQLException {
-		PreparedStatement pstmt = getConnection().prepareStatement(updateSql);
+		PreparedStatement pstmt = conectarDAO().prepareStatement(updateSql);
 		for (int i = 0; i < parametros.length; i++) {
 			pstmt.setObject(i + 1, parametros[i]);
 		}
@@ -48,7 +48,7 @@ public abstract class GenericDAO {
 
 	// Método para deletar
 	protected void delete(String deleteSql, Object... parametros) throws SQLException {
-		PreparedStatement pstmt = getConnection().prepareStatement(deleteSql);
+		PreparedStatement pstmt = conectarDAO().prepareStatement(deleteSql);
 
 		for (int i = 0; i < parametros.length; i++) {
 			pstmt.setObject(i + 1, parametros[i]);

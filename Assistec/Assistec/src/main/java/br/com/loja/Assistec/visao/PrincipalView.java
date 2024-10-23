@@ -11,6 +11,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class PrincipalView extends JFrame {
@@ -60,7 +61,12 @@ public class PrincipalView extends JFrame {
 		JMenuItem menuUsuarios = new JMenuItem("Usuários");
 		menuUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListarUsuarios();
+				try {
+					ListarUsuarios();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 
 		});
@@ -109,7 +115,7 @@ public class PrincipalView extends JFrame {
 	}
 
 
-	protected void ListarUsuarios() {
+	protected void ListarUsuarios() throws SQLException {
 		ListarUsuariosvView luv = new ListarUsuariosvView();
 		luv.setLocationRelativeTo(luv);
 		dispose();
