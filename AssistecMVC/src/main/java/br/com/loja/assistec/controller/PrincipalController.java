@@ -65,13 +65,13 @@ public class PrincipalController {
 
 	// Abre a tela de listagem de usuários
 	private void abrirListagemUsuarios() {
-		//new ListarUsuarioController();
+//		new ListarUsuarioController();
 	}
 
 	// Exibe a mensagem de confirmação de saída e fecha o sistema se confirmado
 	private void sairDoSistema() {
-		//int confirmacao = principalView.confirmarFecharSistema();
-		MensagemView mv = new MensagemView("Certeza que deseja que quer sair?");
+//		int confirmacao = principalView.confirmarFecharSistema();
+		MensagemView mv = new MensagemView("Tem certeza que deseja sair?");
 		int confirmacao = mv.getResposta();
 		if (confirmacao == 1) {
 			System.exit(0);
@@ -80,7 +80,7 @@ public class PrincipalController {
 
 	// Exibe a tela "Sobre" do sistema
 	private void mostrarInformacoesSobre() {
-		//principalView.mostrarSobre();
+//		principalView.mostrarSobre();
 		new MensagemView("Sistema de Gestão Assistec", 10);
 	}
 
