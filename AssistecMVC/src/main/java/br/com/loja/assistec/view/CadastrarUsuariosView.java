@@ -119,6 +119,16 @@ public class CadastrarUsuariosView extends JFrame {
         return txtFone.getText();
     }
 
+	public void habilitarBotaoExcluir(boolean b) {
+		btnExcluir.setVisible(true);
+		
+	}
+
+	public Object getPerfilSelecionado() {
+		return cbPerfil.getSelectedItem();
+	}
+	
+
 
 
 

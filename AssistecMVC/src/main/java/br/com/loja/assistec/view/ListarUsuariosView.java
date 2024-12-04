@@ -89,6 +89,10 @@ public class ListarUsuariosView extends JFrame {
 		return tabela.getValueAt(linha, coluna);
 		
 	}
+
+	public void atualizarTabelaUsuarios(ArrayList<Usuario> novosUsuarios) {
+		usuarioTableModel.carregarDados(novosUsuarios);
+	}
 	
 	
 	
